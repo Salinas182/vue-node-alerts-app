@@ -11,6 +11,8 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(express.json());
+
 app.get("/alerts", async (req, res) => {
   const alerts = getAlertsInfo();
   res.json({ alerts });
@@ -19,6 +21,11 @@ app.get("/alerts", async (req, res) => {
 app.get("/priority", async (req, res) => {
   const priority = await getPriorityInfo();
   res.json({ priority });
+});
+
+app.post('/create', (req, res) => {
+  const { title } = req.body;
+  res.json({message: `Alert ${title} created successfully!`});
 });
 
 app.listen(PORT, () => {

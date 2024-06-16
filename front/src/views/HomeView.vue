@@ -1,14 +1,24 @@
 <script setup>
-import getAlerts from '../api/alerts'
-import getPriority from '../api/priority'
 import { ref, watchEffect, computed } from 'vue'
+import { useStore } from 'vuex';
 
+const store = useStore();
+const updatedAlerts = computed(() => store.getters.getAllAlerts);
+const priority = computed(() => store.getters.getPriority);
 const filters = ['name', 'priority']
 const currentFilter = ref(filters[0])
-const alerts = ref(null)
-const priority = ref(null)
-const sortedAlertsAlphabetically = ref([])
-const sortedAlertsByPriority = ref([])
+const sortedAlertsByName = computed(() => {
+  if (updatedAlerts?.value) {
+    return sortAlertsByName(updatedAlerts.value);
+  }
+  return [];
+});
+const sortedAlertsByPriority = computed(() => {
+  if (updatedAlerts.value && priority.value) {
+    return sortAlertsByPriority(updatedAlerts.value, priority.value);
+  }
+  return [];
+});
 
 function sortAlertsByName(alertsObject) {
   const sortedArray = Object.entries(alertsObject).sort((a, b) => {
@@ -30,25 +40,13 @@ function sortAlertsByPriority(alertsObject, priorityObject) {
 }
 
 watchEffect(async () => {
-  const alertsResponse = await getAlerts()
-  alerts.value = alertsResponse[0]
-  const priorityResponse = await getPriority()
-
-  priority.value = priorityResponse.reduce((acc, item) => {
-    const key = Object.keys(item)[0]
-    acc[key] = item[key]
-    return acc
-  }, {})
-
-  if (alerts.value) {
-    sortedAlertsAlphabetically.value = sortAlertsByName(alerts.value)
-    sortedAlertsByPriority.value = sortAlertsByPriority(alerts.value, priority.value)
-  }
+  store.dispatch('fetchAlerts');
+  store.dispatch('fetchPriority');
 })
 
 const displayedAlerts = computed(() => {
   if (currentFilter.value === 'name') {
-    return sortedAlertsAlphabetically.value
+    return sortedAlertsByName.value
   } 
   return sortedAlertsByPriority.value
 })
