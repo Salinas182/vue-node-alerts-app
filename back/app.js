@@ -14,7 +14,7 @@ app.use(cors({
 app.use(express.json());
 
 app.get("/alerts", async (req, res) => {
-  const alerts = getAlertsInfo();
+  const alerts = await getAlertsInfo();
   res.json({ alerts });
 });
 

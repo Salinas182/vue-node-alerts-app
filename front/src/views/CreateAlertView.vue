@@ -33,7 +33,7 @@ const submitForm = async () => {
       key: formData.value.key,
       value: formData.value.priority,
     })
-    
+
     alert('Alert created successfully!')
     router.push('/')
   } catch (error) {
@@ -45,7 +45,7 @@ const submitForm = async () => {
 
 <template>
   <main>
-    <h1>Create a New Alert</h1>
+    <h1>Create Alert</h1>
     <form @submit.prevent="submitForm">
       <div>
         <label for="key">Key: </label>
