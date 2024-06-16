@@ -1,0 +1,13 @@
+{
+  "priority": [
+    { "fire": 1 },
+    { "gas": 1 },
+    { "emergency": 1 },
+    { "closing_doors": 2 },
+    { "closing_services": 2 },
+    { "appointment": 3 },
+    { "bell": 3 },
+    { "loudspeaker": 4 },
+    { "notifications": 4 }
+  ]
+}

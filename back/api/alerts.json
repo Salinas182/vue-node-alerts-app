@@ -1,0 +1,69 @@
+{
+  "alerts": [
+    {
+      "fire": {
+        "title": "Alarma de incendios",
+        "image": "https://support.visualfy.com/alerta_alarma_incendios.svg",
+        "data": {
+          "last_month_hits": 74294
+        }
+      },
+      "gas": {
+        "title": "Alarma de gas",
+        "image": "https://support.visualfy.com/alerta_alarma_gas.svg",
+        "data": {
+          "last_month_hits": 34444
+        }
+      },
+      "emergency": {
+        "title": "Alarma de emergencia",
+        "image": "https://support.visualfy.com/alerta_alarma_emergencia.svg",
+        "data": {
+          "last_month_hits": 42561
+        }
+      },
+      "closing_doors": {
+        "title": "Cierre de puertas",
+        "image": "https://support.visualfy.com/alerta_cierre_puertas.svg",
+        "data": {
+          "last_month_hits": 51265
+        }
+      },
+      "closing_services": {
+        "title": "Cierre de servicios",
+        "image": "https://support.visualfy.com/alerta_cierre_servicios.svg",
+        "data": {
+          "last_month_hits": 51237
+        }
+      },
+      "appointment": {
+        "title": "Turno de Visita",
+        "image": "https://support.visualfy.com/alerta_turno_visita.svg",
+        "data": {
+          "last_month_hits": 8745
+        }
+      },
+      "bell": {
+        "title": "Timbre",
+        "image": "https://support.visualfy.com/alerta_timbre.svg",
+        "data": {
+          "last_month_hits": 67578
+        }
+      },
+      "loudspeaker": {
+        "title": "Avisos de Megafonía",
+        "image": "https://support.visualfy.com/alerta_megafon%C3%ADa.svg",
+        "data": {
+          "last_month_hits": 5678
+        }
+      },
+      "notifications": {
+        "title": "Notificaciones Personalizadas",
+        "image": "https://support.visualfy.com/alerta_notificaciones_personalizadas.svg",
+        "data": {
+          "last_month_hits": 57935
+        }
+      }
+    }
+  ]
+}
